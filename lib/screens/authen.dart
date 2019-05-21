@@ -6,6 +6,20 @@ class Authen extends StatefulWidget {
 }
 
 class _AuthenState extends State<Authen> {
+  Widget showSignUp() {
+    return RaisedButton(
+      child: Text('Sign Up'),
+      onPressed: () {},
+    );
+  }
+
+  Widget showSignIn() {
+    return RaisedButton(
+      child: Text('Sign In'),
+      onPressed: () {},
+    );
+  }
+
   Widget showPassword() {
     return TextFormField(
       decoration: InputDecoration(
@@ -53,6 +67,11 @@ class _AuthenState extends State<Authen> {
             margin: EdgeInsets.only(left: 50.0, right: 50.0, top: 20.0),
             child: showPassword(),
           ),
+          Container(margin: EdgeInsets.only(left: 50.0, right: 50.0, top: 40.0),
+            child: Row(
+              children: <Widget>[Expanded(child: showSignIn(),), Expanded(child: showSignUp(),)],
+            ),
+          )
         ],
       ),
     ));
