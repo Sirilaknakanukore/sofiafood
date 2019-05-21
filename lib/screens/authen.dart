@@ -23,7 +23,7 @@ class _AuthenState extends State<Authen> {
     return Scaffold(
         body: Container(
       margin: EdgeInsets.only(top: 70.0),
-      alignment: Alignment(0, -1),
+      alignment: Alignment(0,-1),
       child: Column(
         children: <Widget>[
           showlogo(),
