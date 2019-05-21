@@ -23,14 +23,13 @@ class _AuthenState extends State<Authen> {
   Widget showPassword() {
     return TextFormField(
       decoration: InputDecoration(
-          labelText: 'Password : ', hintText: 'More 6 charecter'),
+          labelText: 'Password :', hintText: 'More 6 Charactor'),
     );
   }
 
   Widget showUser() {
     return TextFormField(
-      decoration:
-          InputDecoration(labelText: 'Username : ', hintText: 'Your Username'),
+      decoration: InputDecoration(labelText: 'User :', hintText: 'Your User'),
     );
   }
 
@@ -42,21 +41,24 @@ class _AuthenState extends State<Authen> {
     return Text(
       'Sofia Food',
       style: TextStyle(
-          fontSize: 25.0, fontWeight: FontWeight.bold, color: Colors.red[300]),
+          fontSize: 25.0, fontWeight: FontWeight.bold, color: Colors.red[900]),
     );
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Scaffold(resizeToAvoidBottomPadding: false,
         body: Container(
-      margin: EdgeInsets.only(top: 70.0),
+      decoration: BoxDecoration(
+          gradient: LinearGradient(
+              colors: [Colors.white, Colors.green[50]], begin: Alignment(-1, -1))),
+      padding: EdgeInsets.only(top: 70.0),
       alignment: Alignment(0, -1),
       child: Column(
         children: <Widget>[
           showLogo(),
           Container(
-            margin: EdgeInsets.only(top: 20.0),
+            margin: EdgeInsets.only(top: 10.0),
             child: showTitle(),
           ),
           Container(
@@ -64,12 +66,20 @@ class _AuthenState extends State<Authen> {
             child: showUser(),
           ),
           Container(
-            margin: EdgeInsets.only(left: 50.0, right: 50.0, top: 20.0),
+            margin: EdgeInsets.only(left: 50.0, right: 50.0,top: 20.0),
             child: showPassword(),
           ),
-          Container(margin: EdgeInsets.only(left: 50.0, right: 50.0, top: 40.0),
+          Container(
+            margin: EdgeInsets.only(left: 50.0, right: 50.0,top: 20.0),
             child: Row(
-              children: <Widget>[Expanded(child: showSignIn(),), Expanded(child: showSignUp(),)],
+              children: <Widget>[
+                Expanded(
+                  child: showSignIn(),
+                ),
+                Expanded(
+                  child: showSignUp(),
+                )
+              ],
             ),
           )
         ],
