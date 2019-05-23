@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sofia_food/screens/register.dart';
 
 class Authen extends StatefulWidget {
   @override
@@ -6,10 +7,16 @@ class Authen extends StatefulWidget {
 }
 
 class _AuthenState extends State<Authen> {
-  Widget showSignUp() {
+  Widget showSignUp(BuildContext context) {
     return RaisedButton(
       child: Text('Sign Up'),
-      onPressed: () {},
+      onPressed: () {
+        print('You Click SignUp');
+
+        // create Router
+        var registerRouter = MaterialPageRoute(builder: (BuildContext)=> Register());
+        Navigator.of(context).push(registerRouter);
+      },
     );
   }
 
@@ -47,43 +54,45 @@ class _AuthenState extends State<Authen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(resizeToAvoidBottomPadding: false,
+    return Scaffold(
+        resizeToAvoidBottomPadding: false,
         body: Container(
-      decoration: BoxDecoration(
-          gradient: LinearGradient(
-              colors: [Colors.white, Colors.green[50]], begin: Alignment(-1, -1))),
-      padding: EdgeInsets.only(top: 70.0),
-      alignment: Alignment(0, -1),
-      child: Column(
-        children: <Widget>[
-          showLogo(),
-          Container(
-            margin: EdgeInsets.only(top: 10.0),
-            child: showTitle(),
-          ),
-          Container(
-            margin: EdgeInsets.only(left: 50.0, right: 50.0),
-            child: showUser(),
-          ),
-          Container(
-            margin: EdgeInsets.only(left: 50.0, right: 50.0,top: 20.0),
-            child: showPassword(),
-          ),
-          Container(
-            margin: EdgeInsets.only(left: 50.0, right: 50.0,top: 20.0),
-            child: Row(
-              children: <Widget>[
-                Expanded(
-                  child: showSignIn(),
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+                  colors: [Colors.white, Colors.green[50]],
+                  begin: Alignment(-1, -1))),
+          padding: EdgeInsets.only(top: 70.0),
+          alignment: Alignment(0, -1),
+          child: Column(
+            children: <Widget>[
+              showLogo(),
+              Container(
+                margin: EdgeInsets.only(top: 10.0),
+                child: showTitle(),
+              ),
+              Container(
+                margin: EdgeInsets.only(left: 50.0, right: 50.0),
+                child: showUser(),
+              ),
+              Container(
+                margin: EdgeInsets.only(left: 50.0, right: 50.0, top: 20.0),
+                child: showPassword(),
+              ),
+              Container(
+                margin: EdgeInsets.only(left: 50.0, right: 50.0, top: 20.0),
+                child: Row(
+                  children: <Widget>[
+                    Expanded(
+                      child: showSignIn(),
+                    ),
+                    Expanded(
+                      child: showSignUp(context),
+                    )
+                  ],
                 ),
-                Expanded(
-                  child: showSignUp(),
-                )
-              ],
-            ),
-          )
-        ],
-      ),
-    ));
+              )
+            ],
+          ),
+        ));
   }
 }
